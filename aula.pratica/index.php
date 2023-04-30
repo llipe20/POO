@@ -20,6 +20,7 @@
         $livro[] = new Livro ('Pânico 6','Jenna Ortega', 500, $pessoa[0]);
         $livro[] = new Livro ('Demon Slayer', 'Gotoge', 204, $pessoa[1]);
         $livro[] = new Livro ('Peaky Blinders', 'Thomas Shelby', 802, $pessoa[0]);
+        $livro[] = new Livro ('Jogador Nº1', 'Skylab', 25, $pessoa[1]);
 
      
     ?>
