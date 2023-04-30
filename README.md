@@ -1,2 +1,2 @@
 # POO
- Códigos simples de aulas práticas sobre programação orientada a objetos
+ Códigos de aulas práticas em php;
