@@ -1,5 +1,5 @@
 <?php
-    class Reserva implements CRUD
+    class Reserva
     {
         private $checkin;
         private $checkout;

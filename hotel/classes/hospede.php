@@ -1,66 +1,48 @@
 <?php
-    class Hospede implements CRUD
+
+    include_once '../codigos/conexao.php';
+    include_once '../codigos/tratamento.php';
+
+    class Hospede
     {
-        private $cpf;
-        private $nome;
-        private $email;
-        private $fone;
+        private $conn;
 
         // MÉTODO CONSTRUTOR;
-        public function __construct($cpf,$nome,$email,$fone)
+        public function __construct($conn)
         {
-            $this -> setCpf($cpf);
-            $this -> setNome($nome);
-            $this -> setEmail($email);
-            $this -> setFone($fone);
+            $this -> conn = $conn;
         }
 
-        // MÉTODOS GETTERS;
-        public function getCpf()
+        // MÉTODOS GET;
+        public function getConn()
         {
-            return $this -> cpf;
+            return $this -> conn;
         }
-
-        public function getNome()
+        public function setConn($conn)
         {
-            return $this -> nome;
-        }
-
-        public function getEmail()
-        {
-            return $this -> email;
-        }
-
-        public function getFone()
-        {
-            return $this -> fone;
-        }
-
-        // MÉTODOS SETTERS;
-        public function setCpf($x)
-        {
-             $this -> cpf = $x;
-        }
-
-        public function setNome($f)
-        {
-             $this -> nome = $f;
-        }
-
-        public function setEmail($y)
-        {
-             $this -> email = $y;
-        }
-
-        public function setFone($a)
-        {
-             $this -> fone = $a;
+            $this -> conn = $conn;
         }
 
         // MÉTODO DE CREATE: inserir dados de hospedes no banco;
-        public function create()
-        {
+        public function create($cpf,$nome,$sexo,$email,$fone)
+        {  
+            $cpf = mysqli_escape_string($this->conn,$cpf);
+            $nome = mysqli_escape_string($this->conn,$nome);
+            $sexo = mysqli_escape_string($this->conn,$sexo);
+            $email = mysqli_escape_string($this->conn,$email);
+            $fone = mysqli_escape_string($this->conn,$fone);
 
+            $sql = "INSERT INTO hospedes (idHospede,cpf,nome,sexo,email,fone) 
+            VALUES (DEFAULT,'$cpf','$nome','$sexo','$email','$fone')";
+
+            if (mysqli_query($this->conn, $sql)) {
+                echo " salvo com sucesso!";
+                mysqli_close($this->conn);
+            } 
+            else
+            {
+                echo "Erro ao salvar: ".mysqli_error($this->conn);
+            }
         }
 
         // MÉTODO DE READ: trazer, consultar dados de hospedes no banco;

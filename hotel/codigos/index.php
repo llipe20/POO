@@ -9,7 +9,7 @@
 <body>
     <p><h1>Schmersal Hotel</h1></p>
     <p><h3>Seja bem vindo(a)</h3></p>
-    <p><a href="../formularios/new.reserva.php">Fazer Reserva</a></p>
+    <p><a href="../formularios/form.hospede.php">Fazer Reserva</a></p>
     <p><a href="../formularios/cons.reserva.php">Consultar Reserva</a></p>
     <p><a href="https://github.com/llipe20">Suporte</a></p>
 </body>

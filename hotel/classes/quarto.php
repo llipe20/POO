@@ -1,5 +1,5 @@
 <?php
-    class Quarto implements CRUD
+    class Quarto
     {
         private $numero;
         private $andar;
